@@ -1,0 +1,33 @@
+.logo {
+    font-family: $font-logo;
+}
+
+.menu-btn {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 28px;
+    height: 24px;
+}
+
+.search-bar {
+    width: 70%;
+
+    @include mq(992px) {
+        width: 100%;
+    }
+
+    input {
+        width: 100%;
+        padding: 4px 8px 4px 32px;
+
+        &:focus {
+            outline-color: $primary;
+        }
+    }
+
+    &-icon {
+        top: 8px;
+        left: 10px;
+    }
+}

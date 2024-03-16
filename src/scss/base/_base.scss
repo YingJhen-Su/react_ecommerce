@@ -1,0 +1,78 @@
+body {
+    font-family: $font-default;
+    font-weight: $fw-default;
+    background-color: $bg-color;
+    color: $font-color;
+}
+
+.App {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .mobile-menu,
+    .menu {
+        @include linkStyle;
+    }
+
+    .menu {
+        @include navBlock;
+    }
+
+    .search-form {
+        @include mq(1200px) {
+            min-width: 250px;
+        }
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $overlay;
+}
+
+.main {
+    margin-top: 70px;
+    margin-bottom: 3rem;
+
+    @include mq(768px) {
+        margin-top: 80px;
+    }
+
+    .page-title {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.footer {
+    @include linkStyle;
+
+    &-nav {
+        gap: 0.25rem;
+
+        @include mq(768px) {
+            gap: 0;
+            @include navBlock;
+        }
+    }
+
+    &-attribution {
+        font-size: 12px;
+
+        @include mq(768px) {
+            font-size: 14px;
+        }
+    }
+}

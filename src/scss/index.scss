@@ -1,0 +1,13 @@
+// font
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@500&family=Bubblegum+Sans&display=swap");
+
+// bootstrap
+@import "bootstrap";
+
+// base
+@import "./base/variables";
+@import "./base/mixins";
+@import "./base/utility";
+
+// base
+@import "./base/base";
