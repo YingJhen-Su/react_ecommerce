@@ -31,3 +31,13 @@
         left: 10px;
     }
 }
+
+.back-top {
+    box-shadow: $shadow;
+    bottom: 3%;
+    right: 5%;
+
+    @include mq(992px) {
+        right: 3%;
+    }
+}
