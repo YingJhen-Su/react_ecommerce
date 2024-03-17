@@ -28,7 +28,7 @@ const BackTop = () => {
     };
 
     return (
-        <div
+        <button
             className={`back-top btn btn-light position-fixed ${
                 buttonShow ? "" : "d-none"
             }`}
@@ -36,7 +36,7 @@ const BackTop = () => {
         >
             <i className="fa-solid fa-chevron-up"></i>
             <p className="d-none d-lg-block mb-0">TOP</p>
-        </div>
+        </button>
     );
 };
 

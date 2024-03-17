@@ -20,6 +20,7 @@ import NotFound from "./pages/error/NotFound";
 import {
     categoryLoadder,
     latestLoader,
+    productItemLoader,
     productsLoader,
 } from "./helpers/loaders";
 
@@ -29,7 +30,11 @@ const router = createBrowserRouter(
             <Route index element={<Home />} loader={latestLoader} />
             <Route path="products">
                 <Route index element={<Products />} loader={productsLoader} />
-                <Route path=":id" element={<ProductItem />} />
+                <Route
+                    path=":id"
+                    element={<ProductItem />}
+                    loader={productItemLoader}
+                />
             </Route>
             <Route path="category">
                 <Route index element={<NotFound />} />

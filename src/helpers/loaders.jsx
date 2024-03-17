@@ -1,6 +1,6 @@
 // data loader
 
-// latest 5 products
+// home latest 5 products
 export const latestLoader = async () => {
     const res = await fetch("https://fakestoreapi.com/products?limit=5");
 
@@ -26,6 +26,13 @@ export const categoryLoadder = async ({ params }) => {
     const res = await fetch(
         "https://fakestoreapi.com/products/category/" + params.id
     );
+
+    return res.json();
+};
+
+// product item page
+export const productItemLoader = async ({ params }) => {
+    const res = await fetch("https://fakestoreapi.com/products/" + params.id);
 
     return res.json();
 };
