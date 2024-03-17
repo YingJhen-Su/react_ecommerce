@@ -23,3 +23,9 @@
         padding: 0 1.2rem;
     }
 }
+
+@mixin imgRatio1 {
+    height: auto;
+    aspect-ratio: 1/1;
+    object-position: center;
+}

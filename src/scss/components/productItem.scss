@@ -1,0 +1,7 @@
+@import "../base/mixins";
+
+.item {
+    &-img {
+        @include imgRatio1;
+    }
+}
