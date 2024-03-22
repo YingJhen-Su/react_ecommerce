@@ -1,0 +1,17 @@
+@import "../../scss/base/variables";
+@import "../../scss/base/mixins";
+
+.cart {
+    &-img {
+        @include imgRatio1;
+    }
+
+    &-link {
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+}
