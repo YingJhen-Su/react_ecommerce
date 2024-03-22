@@ -5,3 +5,9 @@
         @include imgRatio1;
     }
 }
+
+.cart-alert {
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+}

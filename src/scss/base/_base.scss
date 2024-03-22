@@ -14,6 +14,7 @@ body {
 .header {
     width: 100%;
     position: fixed;
+    z-index: 9999;
     top: 0;
     left: 0;
 
@@ -31,15 +32,11 @@ body {
             min-width: 250px;
         }
     }
-}
 
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: $overlay;
+    &.overlay {
+        height: 100%;
+        background-color: $overlay;
+    }
 }
 
 .main {
