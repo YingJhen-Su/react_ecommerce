@@ -5,7 +5,7 @@ import ProductBoard from "../components/ProductBoard";
 
 const Products = () => {
     const products = useLoaderData();
-    const [filter, setFilter] = useState([]);
+    const [filter, setFilter] = useState(products);
 
     useEffect(() => {
         setFilter(products);
