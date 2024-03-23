@@ -1,3 +1,10 @@
+import { useEffect } from "react";
+
+// redux
+import { useDispatch } from "react-redux";
+import { updateWidth } from "./app/widthSlice";
+
+// react router
 import {
     createBrowserRouter,
     createRoutesFromElements,
@@ -15,11 +22,11 @@ import ProductItem from "./pages/product/ProductItem";
 import CategoryItem from "./pages/category/CategoryItem";
 import Cart from "./pages/cart/Cart";
 import NotFound from "./pages/error/NotFound";
+import ErrorPage from "./pages/error/ErrorPage";
 
-// loader
+// loaders
 import {
-    categoryLoadder,
-    latestLoader,
+    categoryLoader,
     productItemLoader,
     productsLoader,
 } from "./helpers/loaders";
@@ -27,13 +34,19 @@ import {
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<RootLayout />}>
-            <Route index element={<Home />} loader={latestLoader} />
+            <Route index element={<Home />} />
             <Route path="products">
-                <Route index element={<Products />} loader={productsLoader} />
+                <Route
+                    index
+                    element={<Products />}
+                    loader={productsLoader}
+                    errorElement={<ErrorPage />}
+                />
                 <Route
                     path=":id"
                     element={<ProductItem />}
                     loader={productItemLoader}
+                    errorElement={<ErrorPage />}
                 />
             </Route>
             <Route path="category">
@@ -41,7 +54,8 @@ const router = createBrowserRouter(
                 <Route
                     path=":id"
                     element={<CategoryItem />}
-                    loader={categoryLoadder}
+                    loader={categoryLoader}
+                    errorElement={<ErrorPage />}
                 />
             </Route>
             <Route path="cart" element={<Cart />} />
@@ -49,7 +63,21 @@ const router = createBrowserRouter(
         </Route>
     )
 );
+
 const App = () => {
+    const dispatch = useDispatch();
+
+    const handleResize = () => {
+        dispatch(updateWidth(window.innerWidth));
+    };
+
+    // update width when resize
+    useEffect(() => {
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+    });
+
     return <RouterProvider router={router} />;
 };
 

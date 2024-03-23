@@ -1,31 +1,33 @@
 // data loader
 
-// home latest 5 products
-export const latestLoader = async () => {
-    const res = await fetch("https://fakestoreapi.com/products?limit=5");
-
-    return res.json();
-};
-
 // products/search page
 export const productsLoader = async ({ request }) => {
     const res = await fetch("https://fakestoreapi.com/products");
-    let response = await res.json();
+
+    if (!res.ok) {
+        throw Error("Could not fetch data.");
+    }
+
+    let data = await res.json();
 
     const url = new URL(request.url);
     if (url.searchParams.has("q")) {
         const query = url.searchParams.get("q");
-        response = filterQuery(response, query);
+        data = filterQuery(data, query);
     }
 
-    return response;
+    return data;
 };
 
 // category page
-export const categoryLoadder = async ({ params }) => {
+export const categoryLoader = async ({ params }) => {
     const res = await fetch(
         "https://fakestoreapi.com/products/category/" + params.id
     );
+
+    if (!res.ok) {
+        throw Error("Could not fetch data.");
+    }
 
     return res.json();
 };
@@ -34,14 +36,18 @@ export const categoryLoadder = async ({ params }) => {
 export const productItemLoader = async ({ params }) => {
     const res = await fetch("https://fakestoreapi.com/products/" + params.id);
 
+    if (!res.ok) {
+        throw Error("Could not fetch data.");
+    }
+
     return res.json();
 };
 
 // 過濾 search query
-const filterQuery = (response, query) => {
+const filterQuery = (data, query) => {
     const queryArr = query.replace(/\s+/g, " ").split(" ");
 
-    const newResponse = response.filter((item) => {
+    const newData = data.filter((item) => {
         const title = item.title.toLowerCase();
 
         let flag = true;
@@ -56,5 +62,5 @@ const filterQuery = (response, query) => {
         return flag;
     });
 
-    return newResponse;
+    return newData;
 };

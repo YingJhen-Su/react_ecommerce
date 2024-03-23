@@ -7,8 +7,8 @@ const NotFound = () => {
     useEffect(() => {
         setTimeout(() => {
             navigate("/");
-        }, 3000);
-    }, []);
+        }, 1500);
+    }, [navigate]);
 
     return <h2 className="page-title">Page Not Found</h2>;
 };
