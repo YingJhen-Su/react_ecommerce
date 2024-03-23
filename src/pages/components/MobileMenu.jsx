@@ -72,6 +72,12 @@ const MobileMenu = () => {
         }
     }, [isOpen, setIsOpen]);
 
+    // if first page back to home
+    let prevPage = -1;
+    if (location.key === "default") {
+        prevPage = "/";
+    }
+
     return (
         <header className={`header ${isOpen ? "overlay" : ""}`} ref={menuRef}>
             <div className="bg-white shadow-sm">
@@ -80,7 +86,7 @@ const MobileMenu = () => {
                         <div className="d-flex align-items-center gap-1">
                             <button
                                 className="back-btn"
-                                onClick={() => navigate(-1) || navigate("/")}
+                                onClick={() => navigate(prevPage)}
                             >
                                 <i className="fa-solid fa-angle-left"></i>
                             </button>
