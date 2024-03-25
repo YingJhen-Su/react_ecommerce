@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
 // redux
 import { useDispatch } from "react-redux";
@@ -67,16 +67,16 @@ const router = createBrowserRouter(
 const App = () => {
     const dispatch = useDispatch();
 
-    const handleResize = () => {
+    const handleResize = useCallback(() => {
         dispatch(updateWidth(window.innerWidth));
-    };
+    }, [dispatch]);
 
     // update width when resize
     useEffect(() => {
         window.addEventListener("resize", handleResize);
 
         return () => window.removeEventListener("resize", handleResize);
-    });
+    }, [handleResize]);
 
     return <RouterProvider router={router} />;
 };

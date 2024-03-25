@@ -5,7 +5,7 @@ import BackTop from "../pages/components/BackTop";
 
 const RootLayout = () => {
     return (
-        <div className="App d-flex flex-column">
+        <div className="App w-100 d-flex flex-column">
             <Header />
 
             <main className="main flex-grow-1">
