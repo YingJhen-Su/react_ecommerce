@@ -1,23 +1,22 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const BackTop = () => {
     const [buttonShow, setButtonShow] = useState(false);
 
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
-    const handleScroll = () => {
+    const handleScroll = useCallback(() => {
         if (window.scrollY > 100) {
             setButtonShow(true);
         } else {
             setButtonShow(false);
         }
-    };
+    }, []);
+
+    // if scroll show back to top button
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [handleScroll]);
 
     const scrollTop = () => {
         window.scrollTo({
@@ -33,6 +32,7 @@ const BackTop = () => {
                 buttonShow ? "" : "d-none"
             }`}
             onClick={scrollTop}
+            aria-label="back to top"
         >
             <i className="fa-solid fa-chevron-up"></i>
             <p className="d-none d-lg-block mb-0">TOP</p>

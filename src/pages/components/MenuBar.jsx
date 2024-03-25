@@ -5,7 +5,7 @@ import CartBtn from "./CartBtn";
 
 const MenuBar = () => {
     return (
-        <header className="header">
+        <header className="header w-100 position-fixed top-0 start-0">
             <div className="bg-white shadow-sm">
                 <div className="container py-3 d-flex align-items-center justify-content-between">
                     <h1 className="logo fs-2 mb-0">

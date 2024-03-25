@@ -14,6 +14,9 @@ const CartBtn = () => {
             <i className="fa-solid fa-cart-shopping fs-5"></i>
             <span className="badge text-bg-danger rounded-pill">
                 {Object.keys(cart).length}
+                <span className="visually-hidden">
+                    products quantity in shopping cart
+                </span>
             </span>
         </Link>
     );

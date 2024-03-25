@@ -35,6 +35,7 @@ const MobileMenu = () => {
             const firstElement = focusableElements[0];
             const lastElement = focusableElements[focusableElements.length - 1];
 
+            // use tab || tab + shift
             const handleTabKeyPress = (event) => {
                 if (event.key === "Tab") {
                     if (
@@ -53,6 +54,7 @@ const MobileMenu = () => {
                 }
             };
 
+            // use esc
             const handleEscapeKeyPress = (event) => {
                 if (event.key === "Escape") {
                     setIsOpen(false);
@@ -72,21 +74,28 @@ const MobileMenu = () => {
         }
     }, [isOpen, setIsOpen]);
 
-    // if first page back to home
+    // if is first page back to home
     let prevPage = -1;
     if (location.key === "default") {
         prevPage = "/";
     }
 
     return (
-        <header className={`header ${isOpen ? "overlay" : ""}`} ref={menuRef}>
+        <header
+            className={`header w-100 position-fixed top-0 start-0 ${
+                isOpen ? "overlay" : ""
+            }`}
+            ref={menuRef}
+        >
             <div className="bg-white shadow-sm">
                 <div className="container py-3">
                     <div className="d-flex align-items-center justify-content-between">
                         <div className="d-flex align-items-center gap-1">
                             <button
-                                className="back-btn"
+                                type="button"
+                                className="back-btn border-0 bg-transparent"
                                 onClick={() => navigate(prevPage)}
+                                aria-label="back to previous page"
                             >
                                 <i className="fa-solid fa-angle-left"></i>
                             </button>
@@ -107,21 +116,27 @@ const MobileMenu = () => {
 
                             <button
                                 type="button"
-                                className="menu-btn"
+                                className="menu-btn border-0 bg-transparent"
                                 onClick={toggleMenu}
+                                aria-label="toggle menu"
+                                aria-haspopup="menu"
+                                aria-controls="mobileMenu"
+                                aria-expanded={isOpen ? "true" : "false"}
                             >
                                 <i
-                                    className={`fs-5 ${
+                                    className={
                                         isOpen
-                                            ? "fa-solid fa-xmark"
-                                            : "fa-solid fa-bars"
-                                    }`}
+                                            ? "fs-5 fa-solid fa-xmark"
+                                            : "fs-5 fa-solid fa-bars"
+                                    }
                                 ></i>
                             </button>
                         </div>
                     </div>
 
                     <div
+                        id="mobileMenu"
+                        role="menu"
                         className={`mobile-menu text-center mt-3 flex-column gap-3 ${
                             isOpen ? "d-flex" : "d-none"
                         }`}

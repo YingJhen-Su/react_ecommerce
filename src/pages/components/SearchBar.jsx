@@ -14,17 +14,17 @@ const SearchBar = () => {
     }, [location]);
 
     return (
-        <label className="search-bar position-relative">
+        <div className="search-bar position-relative mx-auto">
             <i className="fa-solid fa-magnifying-glass search-bar-icon fs-6 position-absolute text-secondary"></i>
             <input
                 className="border border-secondary rounded-pill"
                 type="search"
                 placeholder="Search..."
-                aria-label="Search"
+                aria-label="Search through all products"
                 name="q"
                 ref={inputRef}
             />
-        </label>
+        </div>
     );
 };
 
