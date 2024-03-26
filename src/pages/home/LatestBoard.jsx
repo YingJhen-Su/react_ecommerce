@@ -8,9 +8,9 @@ const LatestBoard = () => {
     const [fetchError, setFetchError] = useState(null);
 
     useEffect(() => {
+        // latest 5 products
         const fetchData = async () => {
             try {
-                // latest 5 products
                 const res = await fetch(
                     "https://fakestoreapi.com/products?limit=5"
                 );
@@ -57,8 +57,9 @@ const LatestBoard = () => {
                             <Link
                                 to="/products"
                                 className="btn btn-outline-secondary d-block mt-4 py-2"
+                                aria-label="see all products"
                             >
-                                See More
+                                More Products
                             </Link>
                         </div>
                     </div>

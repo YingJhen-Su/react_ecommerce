@@ -8,8 +8,9 @@ const Card = ({ img, alt, text }) => {
                 className="card-img w-100 h-100 object-fit-cover rounded-0"
                 alt={alt}
             />
+
             <div className="card-img-overlay rounded-0">
-                <h5 className="card-title mb-0 fw-semibold">{text}</h5>
+                <p className="card-title mb-0 fw-semibold">{text}</p>
             </div>
         </div>
     );
