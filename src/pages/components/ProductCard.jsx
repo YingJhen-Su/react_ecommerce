@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import numeral from "numeral";
 import "../../scss/components/productCard.scss";
 
 const ProductCard = ({ product }) => {
@@ -8,6 +9,7 @@ const ProductCard = ({ product }) => {
             to={`/products/${product.id.toString()}`}
             className="product-link h-100 d-block text-decoration-none"
             title={product.title}
+            aria-label={product.title}
         >
             <div className="card h-100 border-0 rounded-0 p-2">
                 <img
@@ -22,7 +24,10 @@ const ProductCard = ({ product }) => {
                             ? product.title.slice(0, 28) + "..."
                             : product.title}
                     </h5>
-                    <p className="card-text fs-5">${product.price}</p>
+
+                    <p className="card-text fs-5">
+                        {numeral(product.price).format("$0,0.00")}
+                    </p>
                 </div>
             </div>
         </Link>

@@ -7,22 +7,27 @@ const FilterDropdown = ({ handleFilter }) => {
     return (
         <div className="dropdown">
             <button
-                className="btn btn-outline-secondary dropdown-toggle"
                 type="button"
+                className="btn btn-outline-secondary dropdown-toggle"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                aria-label="category filter"
+                aria-haspopup="true"
+                aria-controls="categoryFilter"
             >
                 Category
             </button>
 
-            <ul className="dropdown-menu dropdown-menu-end">
+            <ul id="categoryFilter" className="dropdown-menu dropdown-menu-end">
                 {items.map((item, index) => (
-                    <li
-                        key={index}
-                        className="dropdown-item text-capitalize"
-                        onClick={() => handleFilter(item)}
-                    >
-                        {item}
+                    <li key={index}>
+                        <button
+                            type="button"
+                            className="dropdown-item text-capitalize"
+                            onClick={() => handleFilter(item)}
+                        >
+                            {item}
+                        </button>
                     </li>
                 ))}
             </ul>
