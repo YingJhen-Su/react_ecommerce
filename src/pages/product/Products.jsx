@@ -34,10 +34,10 @@ const Products = () => {
     };
 
     return (
-        <section>
+        <>
             <h2 className="page-title">{title}</h2>
 
-            <div className="d-flex align-items-center justify-content-between mb-2">
+            <section className="d-flex align-items-center justify-content-between mb-2">
                 <p className="fs-5 mb-0">
                     {filter.length === 1
                         ? filter.length + " Item"
@@ -45,10 +45,12 @@ const Products = () => {
                 </p>
 
                 <FilterDropdown handleFilter={handleFilter} />
-            </div>
+            </section>
 
-            <ProductBoard products={filter} />
-        </section>
+            <section>
+                <ProductBoard products={filter} />
+            </section>
+        </>
     );
 };
 

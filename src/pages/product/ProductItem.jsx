@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import numeral from "numeral";
 import AddCartButtons from "./AddCartButtons";
-import "../../scss/components/productItem.scss";
+import "../../scss/pages/productItem.scss";
 
 const ProductItem = () => {
     const productItem = useLoaderData();
@@ -25,30 +26,31 @@ const ProductItem = () => {
     return (
         <div className="pt-3">
             <div className="row">
-                <div className="col-12 col-md-6 col-lg-5 col-xl-4">
-                    <section className="p-2 shadow">
+                <section className="col-12 col-md-6 col-lg-5 col-xl-4">
+                    <div className="p-2 shadow">
                         <img
                             src={productItem.image}
                             alt="product image"
                             className="item-img w-100 object-fit-contain"
                         />
-                    </section>
-                </div>
+                    </div>
+                </section>
 
-                <div className="col-12 col-md-6 col-lg-7 col-xl-8">
-                    <section className="mt-3 mt-md-0 ms-md-3 position-relative">
+                <section className="col-12 col-md-6 col-lg-7 col-xl-8">
+                    <div className="mt-3 mt-md-0 ms-md-3 position-relative">
                         <p className="fs-5 text-uppercase text-secondary mb-1">
                             {productItem.category}
                         </p>
                         <h3 className="mb-3">{productItem.title}</h3>
                         <p className="fs-2 text-danger mb-2">
-                            ${productItem.price}
+                            {numeral(productItem.price).format("$0,0.00")}
                         </p>
 
                         <p
                             className={`mb-2 text-secondary ${
                                 limitShow ? "" : "invisible"
                             }`}
+                            role="alert"
                         >
                             <i className="fa-solid fa-circle-info"></i> Purchase
                             Limit 10
@@ -73,8 +75,8 @@ const ProductItem = () => {
                             <i className="fa-regular fa-circle-check"></i>{" "}
                             Success
                         </span>
-                    </section>
-                </div>
+                    </div>
+                </section>
             </div>
         </div>
     );

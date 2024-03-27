@@ -7,7 +7,7 @@ const CategoryItem = () => {
     const title = decodeURI(id);
 
     return (
-        <section>
+        <>
             <h2 className="page-title text-capitalize">{title}</h2>
             <p className="fs-5 mb-2">
                 {products.length === 1
@@ -15,8 +15,10 @@ const CategoryItem = () => {
                     : products.length + " Items"}
             </p>
 
-            <ProductBoard products={products} />
-        </section>
+            <section>
+                <ProductBoard products={products} />
+            </section>
+        </>
     );
 };
 

@@ -98,14 +98,15 @@ const AddCartButtons = ({ product, handleAlert, handleLimit }) => {
                         }`}
                         type="button"
                         onClick={decrement}
+                        aria-label="decrement"
                     >
                         <i className="fa-solid fa-minus"></i>
                     </button>
 
                     <input
                         type="text"
-                        className="item-quantity form-control text-center"
-                        aria-label="Example text with two button addons"
+                        className="form-control text-center"
+                        aria-label="buy quantity"
                         value={quantity}
                         onChange={handleChange}
                     />
@@ -116,6 +117,7 @@ const AddCartButtons = ({ product, handleAlert, handleLimit }) => {
                         }`}
                         type="button"
                         onClick={increment}
+                        aria-label="increment"
                     >
                         <i className="fa-solid fa-plus"></i>
                     </button>
