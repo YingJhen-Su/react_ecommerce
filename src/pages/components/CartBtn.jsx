@@ -8,7 +8,7 @@ const CartBtn = () => {
     return (
         <Link
             to="/cart"
-            className="d-flex align-items-center text-decoration-none text-black"
+            className="cart-btn d-flex align-items-center text-decoration-none text-black"
             aria-label="shopping cart"
         >
             <i className="fa-solid fa-cart-shopping fs-5"></i>

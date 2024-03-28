@@ -14,13 +14,13 @@ const ItemDelete = ({ id }) => {
     };
 
     return (
-        <a
-            href="#"
-            className="link-secondary link-opacity-75-hover d-block"
+        <button
+            type="button"
+            className="btn btn-link link-secondary link-opacity-75-hover"
             onClick={handleDelete}
         >
             Remove
-        </a>
+        </button>
     );
 };
 

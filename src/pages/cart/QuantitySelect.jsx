@@ -8,6 +8,10 @@ const QuantitySelect = ({ product }) => {
     const handleChange = (e) => {
         const newQuantity = Number(e.target.value);
 
+        if (newQuantity < 1 || newQuantity > 10) {
+            return;
+        }
+
         const data = {
             id: product.id,
             quantity: newQuantity,

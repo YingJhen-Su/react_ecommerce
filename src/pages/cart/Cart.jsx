@@ -5,7 +5,7 @@ import numeral from "numeral";
 import NoItems from "./NoItems";
 import MobileCartItems from "./MobileCartItems";
 import CartItems from "./CartItems";
-import "../../scss/components/cart.scss";
+import "../../scss/pages/cart.scss";
 
 const Cart = () => {
     const cart = useSelector(cartSelector);

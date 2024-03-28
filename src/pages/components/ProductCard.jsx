@@ -6,7 +6,7 @@ import "../../scss/components/productCard.scss";
 const ProductCard = ({ product }) => {
     return (
         <Link
-            to={`/products/${product.id.toString()}`}
+            to={`/products/${product.id}`}
             className="product-link h-100 d-block text-decoration-none"
             title={product.title}
             aria-label={product.title}

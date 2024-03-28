@@ -26,7 +26,10 @@ const CartItems = ({ total }) => {
                         <div className="col-6">
                             <div className="row align-items-center">
                                 <div className="col-4">
-                                    <Link to={`/products/${item.id}`}>
+                                    <Link
+                                        to={`/products/${item.id}`}
+                                        aria-label={item.title}
+                                    >
                                         <img
                                             src={item.image}
                                             alt="product image"
@@ -90,6 +93,7 @@ const CartItems = ({ total }) => {
                     <button
                         type="button"
                         className="btn btn-primary w-100 disabled"
+                        aria-disabled="true"
                     >
                         Checkout
                     </button>
